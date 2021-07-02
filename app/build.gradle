@@ -1,0 +1,66 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.example.androidcoroutines"
+        minSdkVersion 16
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding = true
+    }
+
+}
+
+dependencies {
+
+    implementation project(rootProject.ext.modules.domain)
+    implementation project(rootProject.ext.modules.data)
+    implementation project(rootProject.ext.modules.common)
+
+    def commonDependencies = rootProject.ext.commonDependencies
+    implementation commonDependencies.kotlinStd
+    implementation commonDependencies.kotlinx
+    implementation commonDependencies.koinAndroid
+    implementation commonDependencies.koinCore
+
+    def appDependencies = rootProject.ext.appDependencies
+    implementation appDependencies.koinViewModel
+    implementation appDependencies.androidxCore
+    implementation appDependencies.appcompat
+    implementation appDependencies.material
+    implementation appDependencies.livedata
+    implementation appDependencies.viewmodel
+
+    def mainTestDependencies = rootProject.ext.mainTestDependencies
+    testImplementation mainTestDependencies.junit
+    testImplementation mainTestDependencies.coroutines
+    testImplementation mainTestDependencies.ioMockk
+
+    testImplementation appTestDependencies.coreTestingAndroidX
+}

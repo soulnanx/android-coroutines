@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">AndroidCoroutines</string>
+    <string name="title_message">loading...</string>
+</resources>
