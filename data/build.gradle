@@ -46,9 +46,8 @@ dependencies {
     def dataDependencies = rootProject.ext.dataDependencies
     implementation dataDependencies.retrofitCore
     implementation dataDependencies.retrofitGson
-    implementation dataDependencies.viewModel
     implementation dataDependencies.roomRuntime
-    implementation dataDependencies.roomCompiler
+    kapt dataDependencies.roomCompiler
     implementation dataDependencies.roomKtx
 
     def mainTestDependencies = rootProject.ext.mainTestDependencies
