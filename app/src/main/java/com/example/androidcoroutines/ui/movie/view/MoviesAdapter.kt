@@ -4,9 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidcoroutines.databinding.ItemMovieBinding
-import com.example.androidcoroutines.databinding.ItemTaskBinding
 import com.example.domain.model.Movie
-import com.example.domain.model.Task
 
 class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
 
@@ -18,6 +16,7 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
     }
 
     fun addAll(movies: List<Movie>) {
+        this.movies.clear()
         this.movies.addAll(movies)
         notifyDataSetChanged()
     }

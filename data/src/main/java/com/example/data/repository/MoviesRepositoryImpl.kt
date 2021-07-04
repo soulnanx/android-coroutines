@@ -33,12 +33,17 @@ class MoviesRepositoryImpl(
             moviesDao.insertAll(*moviesEntity.toTypedArray())
         },
         shouldFetch = {
-            it.isEmpty()
+            true
         }
 
     )
 
     override suspend fun addMovie(movie: Movie) {
-        moviesService.addMovie(movie)
+        try {
+            moviesService.addMovie(movie)
+            moviesDao.insertAll(movie.toEntity())
+        } catch (e: Exception){
+            throw Exception("Unable to connect!")
+        }
     }
 }
