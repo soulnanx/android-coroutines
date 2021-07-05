@@ -24,11 +24,12 @@ ext {
     roomVersion = '2.3.0'
 
     //Tests
+    androidxTest = '1.4.0'
     junitVersion = '4.13'
-    androidXJunitVersion = '1.1.1'
+    androidxJunit = '1.1.3'
     testRunnerVersion = "1.1.1"
 
-    espressoCoreVersion = '3.2.0'
+    espressoCoreVersion = '3.4.0'
     mockkVersion = "1.10.0"
     mockitoVersion = "2.27.0"
     mockitoKotlinVersion = "2.1.0"
@@ -74,17 +75,22 @@ ext {
 
     appTestDependencies = [
             coreTestingAndroidX: "androidx.arch.core:core-testing:$androidxArchVersion",
-            testRunner         : "androidx.test:runner:$testRunnerVersion",
             coreKtx            : "androidx.test:core-ktx:$coreKtxTestVersion",
             fastlane           : "tools.fastlane:screengrab:$fastlaneVersion",
             espressoCore       : "androidx.test.espresso:espresso-core:$espressoCoreVersion",
             espressoContrib    : "androidx.test.espresso:espresso-contrib:$espressoCoreVersion",
+            androidxTestCore   : "androidx.test:core:$androidxTest",
+            androidxTestRunner : "androidx.test:runner:$androidxTest",
+            androidxTestRules  : "androidx.test:rules:$androidxTest",
+            androidxTestJUnit  : "androidx.test.ext:junit:$androidxJunit"
+
+
     ]
 
     mainTestDependencies = [
             junit        : "junit:junit:$junitVersion",
-            androidXJunit: "androidx.test.ext:junit:$androidXJunitVersion",
-            junitktx     : "androidx.test.ext:junit-ktx:$androidXJunitVersion",
+            androidXJunit: "androidx.test.ext:junit:$androidxJunit",
+            junitktx     : "androidx.test.ext:junit-ktx:$androidxJunit",
             ioMockk      : "io.mockk:mockk:$mockkVersion",
             coreTesting  : "androidx.arch.core:core-testing:$coreTestingVersion",
             coroutines   : "org.jetbrains.kotlinx:kotlinx-coroutines-test:$kotlinVersion"

@@ -14,6 +14,9 @@ android {
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        multiDexEnabled true
+
     }
 
     buildTypes {
@@ -34,6 +37,8 @@ android {
 }
 
 dependencies {
+    implementation 'androidx.multidex:multidex:2.0.1'
+
 
     implementation project(rootProject.ext.modules.domain)
     implementation project(rootProject.ext.modules.data)
@@ -58,5 +63,15 @@ dependencies {
     testImplementation mainTestDependencies.coroutines
     testImplementation mainTestDependencies.ioMockk
 
+    def appTestDependencies = rootProject.ext.appTestDependencies
     testImplementation appTestDependencies.coreTestingAndroidX
+
+    androidTestImplementation appTestDependencies.espressoCore
+    androidTestImplementation appTestDependencies.espressoContrib
+    androidTestImplementation appTestDependencies.androidxTestCore
+    androidTestImplementation appTestDependencies.androidxTestRunner
+    androidTestImplementation appTestDependencies.androidxTestRules
+    androidTestImplementation appTestDependencies.androidxTestJUnit
+
+
 }

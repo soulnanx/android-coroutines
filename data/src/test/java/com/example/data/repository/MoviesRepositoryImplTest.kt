@@ -65,11 +65,6 @@ class MoviesRepositoryImplTest {
         val success = moviesFlow.first()
         moviesFlow.drop(1)
         assert(success.data!!.size == movieList.size)
-//        verify {
-//            runBlocking {
-//                service.getMovies wasNot Called
-//            }
-//        }
     }
 
     @Test
