@@ -24,3 +24,8 @@
 
 - Dependencias centralizadas no dependencies.gradle
 - Implementação do padrão Single Source of Truth com NetworkBoundResource
+
+### Backend ###
+
+- Nodejs com Express
+- [Glitch](https://glitch.com)
