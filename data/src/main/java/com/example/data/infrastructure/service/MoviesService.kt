@@ -8,13 +8,14 @@ import com.example.domain.model.Movie
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import com.example.common.infrastructure.Result
+import com.example.data.BuildConfig
 import kotlinx.coroutines.CoroutineDispatcher
 
 class MoviesService(
     private val movieMapper: MovieMapper,
     private val dispatcher: CoroutineDispatcher
 ) {
-    private val api = ApiConnection().create("http://192.168.15.15:3000/", MovieApi::class.java)
+    private val api = ApiConnection().create(BuildConfig.REST_ENDPOINT, MovieApi::class.java)
 
     internal suspend fun getMovies(): List<Movie> {
         return withContext(dispatcher) {

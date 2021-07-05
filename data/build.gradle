@@ -19,11 +19,11 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField "String", 'REST_ENDPOINT', '"http://127.0.0.1:9000/"'
+            buildConfigField "String", 'REST_ENDPOINT', '"https://pyrite-ruby-attraction.glitch.me/"'
         }
 
         debug {
-            buildConfigField "String", 'REST_ENDPOINT', '"http://127.0.0.1:9000/"'
+            buildConfigField "String", 'REST_ENDPOINT', '"https://pyrite-ruby-attraction.glitch.me/"'
         }
     }
     compileOptions {
