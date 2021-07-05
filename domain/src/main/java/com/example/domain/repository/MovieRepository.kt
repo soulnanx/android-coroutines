@@ -9,5 +9,5 @@ import kotlinx.coroutines.flow.Flow
 interface MovieRepository {
 
     fun fetchMovies(): Flow<Resource<List<Movie>>>
-    suspend fun addMovie(movie: Movie)
+    suspend fun addMovie(movie: Movie): Flow<Resource<String>>
 }

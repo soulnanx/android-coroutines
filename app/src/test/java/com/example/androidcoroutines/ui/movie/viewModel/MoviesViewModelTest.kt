@@ -35,7 +35,7 @@ class MoviesViewModelTest {
 
     private fun instantiateViewModel(): MoviesViewModel {
         val viewModel = MoviesViewModel(getMoviesUseCase, addMovieUseCase)
-        viewModel.movies.observeForever(moviesLiveData)
+        viewModel.getMovies.observeForever(moviesLiveData)
 
         return viewModel
     }

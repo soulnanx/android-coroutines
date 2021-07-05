@@ -10,6 +10,7 @@ import com.example.domain.model.Movie
 import com.example.domain.repository.MovieRepository
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 
 
@@ -38,12 +39,16 @@ class MoviesRepositoryImpl(
 
     )
 
-    override suspend fun addMovie(movie: Movie) {
-        try {
-            moviesService.addMovie(movie)
-            moviesDao.insertAll(movie.toEntity())
-        } catch (e: Exception){
-            throw Exception("Unable to connect!")
+    override suspend fun addMovie(movie: Movie) : Flow<Resource<String>> {
+        return flow {
+            try {
+                emit(Resource.Loading())
+                moviesService.addMovie(movie)
+                moviesDao.insertAll(movie.toEntity())
+                emit(Resource.Success(""))
+            } catch (e: Exception){
+                emit(Resource.Error<String>("Unable to connect!"))
+            }
         }
     }
 }

@@ -2,6 +2,7 @@ package com.example.data.di
 
 import androidx.room.Room
 import com.example.data.infrastructure.local.AppDatabase
+import com.example.data.infrastructure.local.DatabaseFactory
 import com.example.data.infrastructure.service.MoviesService
 import com.example.data.infrastructure.service.TasksService
 import com.example.data.mapper.MovieMapper
@@ -29,11 +30,7 @@ val mapperModule = module {
 }
 
 val databaseModule = module {
-    single { Room.databaseBuilder(
-        get(),
-        AppDatabase::class.java,
-        "database-name"
-    ).build() }
+    single { DatabaseFactory().getDatabase(get()) }
 
     single { get<AppDatabase>().movieDao() }
 }

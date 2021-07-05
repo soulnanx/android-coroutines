@@ -10,7 +10,8 @@ class MovieMapper: DataMapper<List<MovieResponse>, List<Movie>> {
             Movie(
                 id = response.id,
                 title = response.title,
-                score = response.score
+                score = response.score,
+                url = response.url
             )
         }
 }

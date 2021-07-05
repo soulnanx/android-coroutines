@@ -5,11 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.example.androidcoroutines.R
+import com.example.androidcoroutines.base.extensions.BaseActivity
 
 import com.example.androidcoroutines.databinding.MainActivityBinding
 import com.example.androidcoroutines.ui.home.view.HomeFragment
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     private var _binding : MainActivityBinding? = null
     val binding get() = _binding!!
