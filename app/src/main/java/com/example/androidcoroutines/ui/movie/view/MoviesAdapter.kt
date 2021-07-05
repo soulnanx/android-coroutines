@@ -3,6 +3,7 @@ package com.example.androidcoroutines.ui.movie.view
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.androidcoroutines.databinding.ItemMovieBinding
 import com.example.domain.model.Movie
 
@@ -46,6 +47,10 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
         fun bind(movie: Movie) {
             binding.textviewMovieTitle.text = movie.title
             binding.textviewMovieScore.text = movie.score.toString()
+            Glide
+                .with(binding.root.context)
+                .load(movie.url)
+                .into(binding.imageviewMovieImage)
         }
     }
 

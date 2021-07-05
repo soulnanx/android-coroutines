@@ -57,6 +57,7 @@ dependencies {
     implementation appDependencies.material
     implementation appDependencies.livedata
     implementation appDependencies.viewmodel
+    implementation appDependencies.glide
 
     def mainTestDependencies = rootProject.ext.mainTestDependencies
     testImplementation mainTestDependencies.junit
